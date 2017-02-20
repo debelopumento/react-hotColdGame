@@ -1,7 +1,7 @@
 import React, {component} from 'react';
 import EnterGuess from '../containers/enterGuess';
-import HotOrCold from '../containers/HotOrCold';
-//import {createStore} from 'redux';
+import HotOrCold from '../containers/hotOrCold';
+import GuessHistory from '../containers/guessHistory';
 import store from '../store';
 
 /*
@@ -18,7 +18,7 @@ const App = () => {
 	return 	<div>
 				<HotOrCold />
 				<EnterGuess />
-				{abc}
+				<GuessHistory />
 			</div>;
 }
 

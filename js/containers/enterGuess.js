@@ -4,10 +4,6 @@ import {connect} from 'react-redux';
 import store from '../store';
 
 
-
-
-
-
 class EnterGuess extends React.Component {
 
 	constructor(props) {
@@ -22,6 +18,7 @@ class EnterGuess extends React.Component {
 	handleSubmit(event) {		
 		store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
 		store.dispatch({type: "UPDATE_FEEDBACK", payload: null});
+		store.dispatch({type: "UPDATE_HISTORY", payload: this.state.newGuess});
 	}
 
 	handleChange(event) {
