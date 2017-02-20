@@ -6,7 +6,7 @@
 export const ENTER_GUESS = 'ENTER_GUESS';
 export const enterGuess = newGuess => ({
 	type: ENTER_GUESS,
-	guess
+	payload: newGuess
 });
 
 

@@ -1,19 +1,20 @@
 require ('babel-polyfill');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'redux';
-import {createStore} from 'redux';
-import allReducers from './reducers';
+import {Provider} from 'react-redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
+import store from './store';
 import App from './components/app';
 
-
-//const store = createStore(allReducers);
 
 
 document.addEventListener('DOMContentLoaded', () =>
     ReactDOM.render(
-    	//<Provider store={store}>
-    		<App />
-    	//</Provider>
+    	<Provider store={store}>
+    		<div>
+	    		<h1>HOT or COLD</h1>
+	    		<App />
+    		</div>
+    	</Provider>
     	, document.getElementById('app'))
 );
