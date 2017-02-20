@@ -2,8 +2,6 @@ import React, {component} from 'react';
 import store from '../store';
 import reactCSS from 'reactcss';
 
-
-
 export class GuessHistory extends React.Component {
 	
 	constructor(props) {
@@ -28,24 +26,21 @@ export class GuessHistory extends React.Component {
 					backgroundColor: '#11a8ab',
 					padding: '3px',
 					paddingTop: '3px',
-					width: '300px',
+					width: '350px',
 					height: '80px',
 					margin: '0 auto',
 				},
 				indivisualGuess: {
 					backgroundColor: '#1a4e95',
-					padding: '5px',
+					paddingLeft: '8px',
+					paddingRight: '8px',
+					paddingBotton: '8px',
 					marginRight: '5px',
+					marginTop: '5px',
+					borderRadius: '3px',
 				}
 			}
-		})
-
-		
-		
-
-
-		console.log(11, this.state.guessNumber);
-		
+		})		
 		
 		if (this.state.guessNumber != 0) {
 			const abc = this.state.guessHistory;
@@ -59,11 +54,9 @@ export class GuessHistory extends React.Component {
 				</div>
 			);
 		}
-		return (<div style={ styles.guessHistory }> </div>);
-		
+		else return (<div style={ styles.guessHistory }> </div>);
 		
 	}
 }
-
 
 export default GuessHistory;

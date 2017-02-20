@@ -32,16 +32,43 @@ class EnterGuess extends React.Component {
 	}
 
 	render() {
-
+		const styles = reactCSS({
+			'default': {
+				input: {
+					backgroundColor: '#626F82',
+					padding: '3px',
+					width: '200px',
+					height: '40px',
+					marginTop: '20px',
+					marginBottom: '10px',
+					margin: '10 auto',
+					borderRadius: '3px',
+					border: '1px black solid',
+				},
+				button: {
+					backgroundColor: '#1F253D',
+					padding: '3px',
+					width: '206px',
+					height: '40px',
+					marginTop: '10px',
+					marginBottom: '20px',
+					margin: '10 auto',
+					borderRadius: '3px',
+					border: '1px black solid',
+					color: '#ffffff',
+					fontSize: '20px',
+				}
+			}
+		})
 
 		return (
 			<div>
 				<form>
 					<div>
-						<input type="text" ref="numberInput" onChange={this.handleChange} placeholder="enter your guess" />
+						<input type="text" style={ styles.input } ref="numberInput" onChange={this.handleChange} placeholder="Enter Your Guess" />
 					</div>
 					<div>
-						<input type="submit" value="Guess" onClick={this.handleSubmit} />
+						<input type="submit" style={ styles.button } value="Guess" onClick={this.handleSubmit} />
 					</div>
 					</form>
 			</div>

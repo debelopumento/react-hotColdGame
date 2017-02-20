@@ -25,7 +25,7 @@ class HotOrCold extends React.Component {
 				feedbackBox: {
 					backgroundColor: '#cc324b',
 					padding: '3px',
-					width: '300px',
+					width: '350px',
 					margin: '0 auto',
 				}
 			}

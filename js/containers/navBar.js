@@ -3,7 +3,7 @@ import store from '../store';
 require ('babel-polyfill');
 import ReactDOM from 'react-dom';
 import App from '../components/app';
-
+import reactCSS from 'reactcss';
 
 class NavBar extends React.Component {
 
@@ -28,11 +28,34 @@ class NavBar extends React.Component {
 	}
 
 	render() {
+
+		const styles = reactCSS({
+			'default': {
+				navBar: {
+					width: '95%',
+					margin: '10px auto',
+					display: 'flexbox',
+				},
+				left: {
+					background: 'rgba(0, 0, 0, 0)',
+					color: 'white',
+					border: '0px',
+					float: 'left',
+				},
+				right: {
+					background: 'rgba(0, 0, 0, 0)',
+					color: 'white',
+					border: '0px',
+					float: 'right',
+				}
+			}
+		})	
+
 		return (
 			<div>
-				<form>
-					<input type="submit" value="WHAT?" onClick={this.showGameDoc} />
-					<input type="submit" value="+NEW GAME" onClick={this.handleSubmit} />
+				<form style={ styles.navBar }>
+					<input style={ styles.left } type="submit" value="WHAT?" onClick={this.showGameDoc} />
+					<input style={ styles.right } type="submit" value="+NEW GAME" onClick={this.handleSubmit} />
 				</form>
 			</div>
 		);
