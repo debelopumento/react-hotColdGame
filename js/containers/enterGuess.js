@@ -32,12 +32,14 @@ class EnterGuess extends React.Component {
 	render() {
 		return (
 			<div>
-				<div>
-					<input type="text" onChange={this.handleChange} placeholder="enter your guess" />
-				</div>
-				<div>
-					<button type="submit" onClick={this.handleSubmit}>Guess</button>
-				</div>
+				<form>
+					<div>
+						<input type="text" onChange={this.handleChange} placeholder="enter your guess" />
+					</div>
+					<div>
+						<input type="submit" value="Guess" onClick={this.handleSubmit} />
+					</div>
+					</form>
 			</div>
 		);
 	}
