@@ -3,17 +3,20 @@ import store from '../store';
 import reactCSS from 'reactcss';
 
 
+
 export class GuessHistory extends React.Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = {
-			guessHistory: ''
+			guessHistory: null,
+			guessNumber: 0
 		}
 		
 		store.subscribe(() => {
 			this.setState({
-				guessHistory: store.getState().guessHistory
+				guessHistory: store.getState().guessHistory,
+				guessNumber: store.getState().guessNumber
 			})
 		})
 	}
@@ -24,23 +27,41 @@ export class GuessHistory extends React.Component {
 				guessHistory: {
 					backgroundColor: '#11a8ab',
 					padding: '3px',
+					paddingTop: '3px',
 					width: '300px',
 					height: '80px',
 					margin: '0 auto',
 				},
 				indivisualGuess: {
 					backgroundColor: '#1a4e95',
-					padding: '2px',
+					padding: '5px',
 					marginRight: '5px',
 				}
 			}
-		})	
+		})
 
-		return (
-			<div style={ styles.guessHistory }>
-				<span style={ styles.indivisualGuess }>{this.state.guessHistory}</span>
-			</div>
-		);
+		
+		
+
+
+		console.log(11, this.state.guessNumber);
+		
+		
+		if (this.state.guessNumber != 0) {
+			const abc = this.state.guessHistory;
+			const listItems = abc.map((number) =>
+				<span style={ styles.indivisualGuess }>{number}</span>
+			)
+
+			return (
+				<div style={ styles.guessHistory }>
+					{listItems}
+				</div>
+			);
+		}
+		return (<div style={ styles.guessHistory }> </div>);
+		
+		
 	}
 }
 

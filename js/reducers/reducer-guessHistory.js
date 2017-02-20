@@ -3,7 +3,7 @@ import store from '../store';
 const GuessHistoryReducer = (state=[], action) => {
 	switch (action.type) {
 		case "UPDATE_HISTORY": {
-			const newGuess = action.payload;
+			const newGuess = parseInt(action.payload);
 			const guessHistory = store.getState().guessHistory;
 			guessHistory.push(newGuess);
 			return guessHistory;
