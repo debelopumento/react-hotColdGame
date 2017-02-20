@@ -45,7 +45,7 @@ export class GuessHistory extends React.Component {
 		if (this.state.guessNumber != 0) {
 			const abc = this.state.guessHistory;
 			const listItems = abc.map((number) =>
-				<span style={ styles.indivisualGuess }>{number}</span>
+				<span key={number} style={ styles.indivisualGuess }>{number}</span>
 			)
 
 			return (
