@@ -16,9 +16,12 @@ class EnterGuess extends React.Component {
 	}
 
 	handleSubmit(event) {		
+		event.preventDefault();
+
 		store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
 		store.dispatch({type: "UPDATE_FEEDBACK", payload: null});
 		store.dispatch({type: "UPDATE_HISTORY", payload: this.state.newGuess});
+		store.dispatch({type: "UPDATE_GUESS_NUMBER", payload: null});
 	}
 
 	handleChange(event) {

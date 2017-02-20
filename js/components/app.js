@@ -1,6 +1,7 @@
 import React, {component} from 'react';
 import EnterGuess from '../containers/enterGuess';
 import HotOrCold from '../containers/hotOrCold';
+import GuessCount from '../containers/guessCount';
 import GuessHistory from '../containers/guessHistory';
 import store from '../store';
 
@@ -18,6 +19,7 @@ const App = () => {
 	return 	<div>
 				<HotOrCold />
 				<EnterGuess />
+				<GuessCount />
 				<GuessHistory />
 			</div>;
 }
