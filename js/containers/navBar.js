@@ -5,29 +5,34 @@ import ReactDOM from 'react-dom';
 import App from '../components/app';
 
 
-class NewGame extends React.Component {
+class NavBar extends React.Component {
 
 	constructor() {
 		super();
 		this.state = {
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.showGameDoc = this.showGameDoc.bind(this);
 	}
 
 	handleSubmit(event) {		
 		event.preventDefault();
-		console.log('may i continue');
 		store.dispatch({type: "CLEAR_FEEDBACK", payload: null});
 		store.dispatch({type: "CLEAR_HISTORY", payload: null});
 		store.dispatch({type: "CLEAR_GUESS_COUNT", payload: null});
 		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null});
 	}
 
+	showGameDoc(event) {
+		console.log();
+	}
+
 	render() {
 		return (
 			<div>
 				<form>
-				<input type="submit" value="New Game" onClick={this.handleSubmit} />
+					<input type="submit" value="WHAT?" onClick={this.showGameDoc} />
+					<input type="submit" value="+NEW GAME" onClick={this.handleSubmit} />
 				</form>
 			</div>
 		);
@@ -35,4 +40,4 @@ class NewGame extends React.Component {
 }
  
 
-export default NewGame;
+export default NavBar;
