@@ -1,7 +1,7 @@
 
 import React, {component} from 'react';
 require ('babel-polyfill');
-
+import reactCSS from 'reactcss';
 
 
 class GameDoc extends React.Component {
@@ -13,6 +13,9 @@ class GameDoc extends React.Component {
 	}
 
 	render() {
+		
+
+
 		return (
 			<div className="hidden">
 				<p>wa wa wa </p>

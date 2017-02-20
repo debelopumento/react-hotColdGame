@@ -2,7 +2,7 @@ import React, {component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import store from '../store';
-
+import reactCSS from 'reactcss';
 
 
 class HotOrCold extends React.Component {
@@ -20,8 +20,20 @@ class HotOrCold extends React.Component {
 	}
 
 	render() {
+		const styles = reactCSS({
+			'default': {
+				feedbackBox: {
+					backgroundColor: 'lightgrey',
+					padding: '3px',
+					width: '230px',
+					margin: '0 auto',
+					color: 'red',
+				}
+			}
+		})
+
 		return (
-			<div>
+			<div style={ styles.feedbackBox }>
 				<h3>{this.state.feedback}</h3>
 			</div>
 		);

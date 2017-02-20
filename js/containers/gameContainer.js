@@ -8,6 +8,9 @@ import NavBar from './navBar';
 import GameDoc from './gameDoc';
 import store from '../store';
 
+import reactCSS from 'reactcss';
+
+
 
 
 class GameContainer extends React.Component {
@@ -18,16 +21,22 @@ class GameContainer extends React.Component {
 	}
 
 	render() {
+		
+
 		return (
-			<div>
+			<div className="gameContainer">
 				<nav>
 					<NavBar />
 				</nav>
 				<h2>HOT or COLD</h2>
-				<HotOrCold />
-				<EnterGuess />
-				<GuessCount />
-				<GuessHistory />
+				<div>
+					<HotOrCold />
+					<EnterGuess />
+					<GuessCount />
+				</div>
+				<div>
+					<GuessHistory />
+				</div>
 			</div>
 		);
 	}
