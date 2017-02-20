@@ -1,11 +1,11 @@
 import React from 'react';
 import {combineReducers} from 'redux';
 import store from '../store';
-import GoalNumberReducer from './reducer-goalNumberGenerater';
+import NewGuessReducer from './reducer-newGuess';
+import GoalNumberReducer from './reducer-goalNumberGenerator';
 import FeedbackReducer from './reducer-feedback';
 import GuessCountReducer from './reducer-guessCount';
 import GuessHistoryReducer from './reducer-guessHistory';
-import NewGuessReducer from './reducer-newGuess';
 
 
 

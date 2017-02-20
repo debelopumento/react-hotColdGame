@@ -6,8 +6,12 @@ const GuessHistoryReducer = (state=[], action) => {
 			const newGuess = action.payload;
 			const guessHistory = store.getState().guessHistory;
 			guessHistory.push(newGuess);
-			console.log(23, guessHistory);
 			return guessHistory;
+			break;
+		}
+		case "CLEAR_HISTORY": {
+			const newHistory = [];
+			return newHistory;
 			break;
 		}
 	}

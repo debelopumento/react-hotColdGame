@@ -22,7 +22,7 @@ class HotOrCold extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>{this.state.feedback}</h2>
+				<h3>{this.state.feedback}</h3>
 			</div>
 		);
 	}

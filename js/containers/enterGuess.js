@@ -21,7 +21,9 @@ class EnterGuess extends React.Component {
 		store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
 		store.dispatch({type: "UPDATE_FEEDBACK", payload: null});
 		store.dispatch({type: "UPDATE_HISTORY", payload: this.state.newGuess});
-		store.dispatch({type: "UPDATE_GUESS_NUMBER", payload: null});
+		store.dispatch({type: "UPDATE_GUESS_COUNT", payload: null});
+		this.refs.numberInput.value = '';
+
 	}
 
 	handleChange(event) {
@@ -34,7 +36,7 @@ class EnterGuess extends React.Component {
 			<div>
 				<form>
 					<div>
-						<input type="text" onChange={this.handleChange} placeholder="enter your guess" />
+						<input type="text" ref="numberInput" onChange={this.handleChange} placeholder="enter your guess" />
 					</div>
 					<div>
 						<input type="submit" value="Guess" onClick={this.handleSubmit} />

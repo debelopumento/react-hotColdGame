@@ -28,6 +28,11 @@ const FeedbackReducer = (state=null, action) => {
 			return feedback;
 			break;
 		}
+		case "CLEAR_FEEDBACK": {
+			const feedback = 'Make Your Guess!';
+			return feedback;
+			break;
+		}
 	}
 	return state;
 }
