@@ -5,7 +5,7 @@ const GoalNumberReducer = (state = null, action) => {
 		case null: {
 			const goalNumber = Math.floor(Math.random()*100);
 			console.log('the goal number is: ', goalNumber);
-			return goalNumber;
+			return goalNumber + 1;
 		}
 	}
 	return state;

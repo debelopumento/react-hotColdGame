@@ -5,10 +5,10 @@ import store from '../store';
 
 
 
-//store.dispatch({type: "currentGuess", payload: 10})
 
 
-export class EnterGuess extends React.Component {
+
+class EnterGuess extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -21,7 +21,7 @@ export class EnterGuess extends React.Component {
 
 	handleSubmit(event) {		
 		store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
-
+		store.dispatch({type: "UPDATE_FEEDBACK", payload: null});
 	}
 
 	handleChange(event) {

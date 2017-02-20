@@ -4,11 +4,11 @@ import HotOrCold from '../containers/HotOrCold';
 //import {createStore} from 'redux';
 import store from '../store';
 
-
+/*
 store.subscribe(() => {
 	console.log("subscribed store: ", store.getState());
 })
-
+*/
 
 
 

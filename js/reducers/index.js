@@ -1,29 +1,58 @@
 import React from 'react';
 import {combineReducers} from 'redux';
-//import EnterGuessReducer from './reducer-enterGuess';
-import GuessHistoryReducer from './reducer-guessHistory';
 import store from '../store';
 import GoalNumberReducer from './reducer-goalNumberGenerater';
 
 
-
-
-const CurrentGuessReducer = (state=null, action) => {
+const FeedbackReducer = (state=null, action) => {
 	switch (action.type) {
-		case "NEW_GUESS": {
-			return action.payload;
+		case "UPDATE_FEEDBACK": {
+			const goalNumber = store.getState().goalNumber;
+			const newGuess = store.getState().newGuess;
+			const absoluteValue = Math.abs(newGuess - goalNumber);
+
+			let feedback = '';
+			const feedbackGenerator = (absoluteValue) => {
+				if (absoluteValue >= 30) {
+					feedback =  'Cold!';
+				} else if (absoluteValue >= 20) {
+					feedback = 'Warmer than cold!';
+				} else if (absoluteValue >= 10) {
+					feedback = 'Warm!';
+				} else if (absoluteValue != 0) {
+					feedback = 'Hot!'
+				} else {feedback = 'Correct!'}
+			}
+
+			feedbackGenerator(absoluteValue);
+
+			console.log('message: ', feedback);
+
+			return feedback;
 			break;
 		}
 	}
+	return state;
+	
+}
+
+const NewGuessReducer = (state=null, action) => {
+	switch (action.type) {
+		case "NEW_GUESS": {
+			const newGuess = action.payload;			
+			return newGuess;
+			break;
+		}
+	}
+
 	return state;
 }
 
 
 const allReducers = combineReducers({
-	//enterGuess: EnterGuessReducer,
 	goalNumber: GoalNumberReducer,
-	newGuess: CurrentGuessReducer
-	//guessHistory: GuessHistoryReducer
+	newGuess: NewGuessReducer,
+	feedback: FeedbackReducer
 });
 
 export default allReducers;
@@ -43,7 +72,4 @@ const reducerA = (stateName=0, action) => {
 	return stateName;
 }
 
-const reducerB = (stateName={}, action) => {
-	return stateName;
-}
 */
