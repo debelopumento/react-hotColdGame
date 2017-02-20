@@ -23,17 +23,16 @@ class HotOrCold extends React.Component {
 		const styles = reactCSS({
 			'default': {
 				feedbackBox: {
-					backgroundColor: 'lightgrey',
+					backgroundColor: '#cc324b',
 					padding: '3px',
-					width: '230px',
+					width: '300px',
 					margin: '0 auto',
-					color: 'red',
 				}
 			}
-		})
+		})	
 
 		return (
-			<div style={ styles.feedbackBox }>
+			<div style={ styles.feedbackBox}>
 				<h3>{this.state.feedback}</h3>
 			</div>
 		);

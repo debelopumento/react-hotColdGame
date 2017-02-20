@@ -1,6 +1,6 @@
 import React, {component} from 'react';
 import store from '../store';
-
+import reactCSS from 'reactcss';
 
 
 export class GuessHistory extends React.Component {
@@ -19,9 +19,26 @@ export class GuessHistory extends React.Component {
 	}
 	
 	render() {
+		const styles = reactCSS({
+			'default': {
+				guessHistory: {
+					backgroundColor: '#11a8ab',
+					padding: '3px',
+					width: '300px',
+					height: '80px',
+					margin: '0 auto',
+				},
+				indivisualGuess: {
+					backgroundColor: '#1a4e95',
+					padding: '2px',
+					marginRight: '5px',
+				}
+			}
+		})	
+
 		return (
-			<div>
-				<span>{this.state.guessHistory}</span>
+			<div style={ styles.guessHistory }>
+				<span style={ styles.indivisualGuess }>{this.state.guessHistory}</span>
 			</div>
 		);
 	}

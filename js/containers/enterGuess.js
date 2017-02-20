@@ -2,7 +2,7 @@ import React, {component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import store from '../store';
-
+import reactCSS from 'reactcss';
 
 class EnterGuess extends React.Component {
 
@@ -32,6 +32,8 @@ class EnterGuess extends React.Component {
 	}
 
 	render() {
+
+
 		return (
 			<div>
 				<form>

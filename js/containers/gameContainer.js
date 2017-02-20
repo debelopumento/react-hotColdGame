@@ -21,22 +21,41 @@ class GameContainer extends React.Component {
 	}
 
 	render() {
-		
+		const styles = reactCSS({
+			'default': {
+				gameBox: {
+					padding: '3px',
+					width: '300px',
+					height: '200px',
+					margin: '0 auto',
+					borderRadius: '5px',
+				},
+				guessBox: {
+					backgroundColor: '#3F4766',
+					padding: '3px',
+					width: '300px',
+					height: '100px',
+					margin: '0 auto',
+
+				}
+			}
+		})
 
 		return (
 			<div className="gameContainer">
 				<nav>
 					<NavBar />
 				</nav>
-				<h2>HOT or COLD</h2>
-				<div>
+				<h1>HOT or COLD</h1>
+				<div style={ styles.gameBox }>
 					<HotOrCold />
-					<EnterGuess />
-					<GuessCount />
-				</div>
-				<div>
+					<div style={ styles.guessBox }>
+						<EnterGuess />
+						<GuessCount />
+					</div>
 					<GuessHistory />
 				</div>
+				
 			</div>
 		);
 	}

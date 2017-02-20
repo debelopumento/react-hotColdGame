@@ -1,12 +1,24 @@
 html, body {
-	background-color: #D5DBDB;
+	background-color: #394264;
 	text-align: center;
-}
-
-.gameContainer {
-	background-color: #182C3B;
+	height: 100%;
+	font-family: 'Fjord One', serif;
 	color: #ffffff;
 }
+
+h1 {
+	font-size: 45px;
+	font-weight: bold;
+}
+
+main {
+	height: 98%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #1F253D;
+
+}
+
 
 .hidden {
 	display: none;
