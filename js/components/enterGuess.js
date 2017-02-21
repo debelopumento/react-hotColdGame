@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import store from '../store';
 import reactCSS from 'reactcss';
+import {enterGuess} from '../actions/index';
 
 class EnterGuess extends React.Component {
 
@@ -18,7 +19,17 @@ class EnterGuess extends React.Component {
 	handleSubmit(event) {		
 		event.preventDefault();
 
-		store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
+		//store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
+	 	/*
+	 	const ENTER_GUESS = 'ENTER_GUESS';
+		const enterGuess = newGuess => ({
+			type: ENTER_GUESS,
+			payload: newGuess
+		});
+		*/
+		store.dispatch(enterGuess(this.state.newGuess));
+
+
 		store.dispatch({type: "UPDATE_FEEDBACK", payload: null});
 		store.dispatch({type: "UPDATE_HISTORY", payload: this.state.newGuess});
 		store.dispatch({type: "UPDATE_GUESS_COUNT", payload: null});

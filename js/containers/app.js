@@ -1,6 +1,6 @@
 import React, {component} from 'react';
-import GameDoc from '../containers/gameDoc';
-import GameContainer from '../containers/gameContainer';
+import GameDoc from '../components/gameDoc';
+import GameContainer from '../components/gameContainer';
 
 
 const App = () => {

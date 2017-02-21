@@ -2,7 +2,7 @@ import React, {component} from 'react';
 import store from '../store';
 require ('babel-polyfill');
 import ReactDOM from 'react-dom';
-import App from '../components/app';
+import App from '../containers/app';
 import reactCSS from 'reactcss';
 
 class NavBar extends React.Component {
@@ -10,6 +10,7 @@ class NavBar extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			//gameDocDisplay: false
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.showGameDoc = this.showGameDoc.bind(this);
@@ -48,9 +49,15 @@ class NavBar extends React.Component {
 					border: '0px',
 					float: 'right',
 				}
+		
 			}
-		})	
-
+		})
+		/*	
+		if () {
+			return <Html_gameDoc />
+		}
+		return ( <div> {this.state.gameDocDisplay ? <GameDoc /> : null } <form .......
+		*/
 		return (
 			<div>
 				<form style={ styles.navBar }>
