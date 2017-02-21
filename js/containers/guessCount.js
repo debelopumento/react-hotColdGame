@@ -1,6 +1,6 @@
 import React, {component} from 'react';
 import store from '../store';
-
+import reactCSS from 'reactcss';
 
 
 export class GuessCount extends React.Component {
@@ -19,9 +19,23 @@ export class GuessCount extends React.Component {
 	}
 	
 	render() {
+		const styles = reactCSS({
+			'default': {
+				guessCountLine: {
+					fontSize: '25px',
+					marginTop: '3px',
+					paddingTop: '0',
+				},
+				guessCount: {
+					fontSize: '35px',
+					color: '#FFB430',
+				}
+			}
+		})
+
 		return (
-			<div>
-				<h4>Guess # {this.state.guessCount} !</h4>
+			<div style={styles.guessCountLine}>
+				Guess # <span style={styles.guessCount}>{this.state.guessCount}</span> !
 			</div>
 		);
 	}

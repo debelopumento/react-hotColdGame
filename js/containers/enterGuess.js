@@ -37,7 +37,7 @@ class EnterGuess extends React.Component {
 				input: {
 					backgroundColor: '#626F82',
 					padding: '3px',
-					width: '200px',
+					width: '230px',
 					height: '40px',
 					marginTop: '20px',
 					marginBottom: '10px',
@@ -48,10 +48,10 @@ class EnterGuess extends React.Component {
 				button: {
 					backgroundColor: '#1F253D',
 					padding: '3px',
-					width: '206px',
-					height: '40px',
+					width: '236px',
+					height: '46px',
 					marginTop: '10px',
-					marginBottom: '20px',
+					marginBottom: '5px',
 					margin: '10 auto',
 					borderRadius: '3px',
 					border: '1px black solid',

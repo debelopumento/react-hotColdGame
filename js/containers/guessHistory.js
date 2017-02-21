@@ -29,6 +29,7 @@ export class GuessHistory extends React.Component {
 					width: '350px',
 					height: '80px',
 					margin: '0 auto',
+					display: 'flexbox'
 				},
 				indivisualGuess: {
 					backgroundColor: '#1a4e95',
@@ -38,6 +39,7 @@ export class GuessHistory extends React.Component {
 					marginRight: '5px',
 					marginTop: '5px',
 					borderRadius: '3px',
+					flex: '1'
 				}
 			}
 		})		
