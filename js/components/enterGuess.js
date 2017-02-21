@@ -3,10 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import store from '../store';
 import reactCSS from 'reactcss';
-import {enterGuess} from '../actions/index';
+import {enterGuess, updateFeedback} from '../actions/index';
 
 class EnterGuess extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -18,23 +17,10 @@ class EnterGuess extends React.Component {
 
 	handleSubmit(event) {		
 		event.preventDefault();
-
-		//store.dispatch({type: "NEW_GUESS", payload: this.state.newGuess});
-	 	/*
-	 	const ENTER_GUESS = 'ENTER_GUESS';
-		const enterGuess = newGuess => ({
-			type: ENTER_GUESS,
-			payload: newGuess
-		});
-		*/
 		store.dispatch(enterGuess(this.state.newGuess));
-
-
-		store.dispatch({type: "UPDATE_FEEDBACK", payload: null});
-		store.dispatch({type: "UPDATE_HISTORY", payload: this.state.newGuess});
-		store.dispatch({type: "UPDATE_GUESS_COUNT", payload: null});
-		this.refs.numberInput.value = '';
-
+		store.dispatch(updateFeedback());
+		store.dispatch(updateHistory(this.state.newGuess));
+		store.dispatch(updateGuessCount());
 	}
 
 	handleChange(event) {
@@ -76,7 +62,7 @@ class EnterGuess extends React.Component {
 			<div>
 				<form>
 					<div>
-						<input type="text" style={ styles.input } ref="numberInput" onChange={this.handleChange} placeholder="Enter Your Guess" />
+						<input type="text" style={ styles.input } onChange={this.handleChange} placeholder="Enter Your Guess" />
 					</div>
 					<div>
 						<input type="submit" style={ styles.button } value="Guess" onClick={this.handleSubmit} />
@@ -86,6 +72,5 @@ class EnterGuess extends React.Component {
 		);
 	}
 }
- 
 
 export default EnterGuess;
