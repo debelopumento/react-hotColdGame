@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import store from '../store';
 import reactCSS from 'reactcss';
-import {enterGuess, updateFeedback} from '../actions/index';
+import {enterGuess, updateFeedback, updateHistory, updateGuessCount} from '../actions/index';
 
 class EnterGuess extends React.Component {
 	constructor(props) {
@@ -18,9 +18,11 @@ class EnterGuess extends React.Component {
 	handleSubmit(event) {		
 		event.preventDefault();
 		store.dispatch(enterGuess(this.state.newGuess));
-		store.dispatch(updateFeedback());
+		store.dispatch(updateFeedback(this.state.newGuess));
 		store.dispatch(updateHistory(this.state.newGuess));
 		store.dispatch(updateGuessCount());
+		this.refs.numberInput.value = '';
+		
 	}
 
 	handleChange(event) {
@@ -62,7 +64,7 @@ class EnterGuess extends React.Component {
 			<div>
 				<form>
 					<div>
-						<input type="text" style={ styles.input } onChange={this.handleChange} placeholder="Enter Your Guess" />
+						<input type="text" style={ styles.input } ref="numberInput" onChange={this.handleChange} placeholder="Enter Your Guess" />
 					</div>
 					<div>
 						<input type="submit" style={ styles.button } value="Guess" onClick={this.handleSubmit} />

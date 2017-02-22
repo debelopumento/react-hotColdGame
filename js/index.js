@@ -4,14 +4,15 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import store from './store';
-import App from './components/app';
+import App from './containers/app';
 
+ReactDOM.render(
+	<Provider store={store}>
+    		<App />
+	</Provider>
+	, document.getElementById('app'))
 
-
-
-    ReactDOM.render(
-    	<Provider store={store}>
-	    		<App />
-    	</Provider>
-    	, document.getElementById('app'))
+	document.addEventListener('DOMContentLoaded', () =>
+		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null})
+);
 

@@ -1,13 +1,13 @@
 import store from '../store';
 
 
-const FeedbackReducer = (state=null, action) => {
+const FeedbackReducer = (state='Make Your Guess!', action) => {
 	switch (action.type) {
 		case "UPDATE_FEEDBACK": {
 			const goalNumber = store.getState().goalNumber;
-			const newGuess = store.getState().newGuess;
+			const newGuess = action.payload;
 			const absoluteValue = Math.abs(newGuess - goalNumber);
-
+			
 			let feedback = '';
 			const feedbackGenerator = (absoluteValue) => {
 				if (absoluteValue >= 30) {

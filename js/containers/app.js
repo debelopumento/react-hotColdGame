@@ -1,11 +1,11 @@
 import React, {component} from 'react';
 import GameDoc from '../components/gameDoc';
-import GameContainer from '../components/gameContainer';
+import GameContainer from './gameContainer';
+import store from '../store';
 
 
 const App = () => {
 	return 	<div>
-				<GameDoc />
 				<GameContainer />
 			</div>;
 }

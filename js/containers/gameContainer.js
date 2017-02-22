@@ -1,17 +1,14 @@
 
 import React, {component} from 'react';
-import EnterGuess from './enterGuess';
-import HotOrCold from './hotOrCold';
-import GuessCount from './guessCount';
-import GuessHistory from './guessHistory';
-import NavBar from './navBar';
-import GameDoc from './gameDoc';
+import EnterGuess from '../components/enterGuess';
+import HotOrCold from '../components/hotOrCold';
+import GuessCount from '../components/guessCount';
+import GuessHistory from '../components/guessHistory';
+import NavBar from '../components/navBar';
+import GameDoc from '../components/gameDoc';
 import store from '../store';
 
 import reactCSS from 'reactcss';
-
-
-
 
 class GameContainer extends React.Component {
 	constructor() {
@@ -46,6 +43,7 @@ class GameContainer extends React.Component {
 
 		return (
 			<div className="gameContainer">
+				
 				<nav style={ styles.nav }>
 					<NavBar />
 				</nav>

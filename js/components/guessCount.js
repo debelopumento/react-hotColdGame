@@ -2,7 +2,6 @@ import React, {component} from 'react';
 import store from '../store';
 import reactCSS from 'reactcss';
 
-
 export class GuessCount extends React.Component {
 	
 	constructor(props) {

@@ -4,19 +4,24 @@ require ('babel-polyfill');
 import ReactDOM from 'react-dom';
 import App from '../containers/app';
 import reactCSS from 'reactcss';
+import GameDoc from './gameDoc';
 
 class NavBar extends React.Component {
 
 	constructor() {
 		super();
 		this.state = {
-			//gameDocDisplay: false
+			gameDocDisplay: false
 		};
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.showGameDoc = this.showGameDoc.bind(this);
+		this.startNewGame = this.startNewGame.bind(this);
+		this.displayGameDoc = this.displayGameDoc.bind(this);
 	}
 
-	handleSubmit(event) {		
+	displayGameDoc(event) {
+		this.setState((state) => ({gameDocDisplay: true}));
+	}
+
+	startNewGame(event) {		
 		event.preventDefault();
 		store.dispatch({type: "CLEAR_FEEDBACK", payload: null});
 		store.dispatch({type: "CLEAR_HISTORY", payload: null});
@@ -24,12 +29,7 @@ class NavBar extends React.Component {
 		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null});
 	}
 
-	showGameDoc(event) {
-		console.log();
-	}
-
 	render() {
-
 		const styles = reactCSS({
 			'default': {
 				navBar: {
@@ -49,20 +49,16 @@ class NavBar extends React.Component {
 					border: '0px',
 					float: 'right',
 				}
-		
 			}
 		})
-		/*	
-		if () {
-			return <Html_gameDoc />
-		}
-		return ( <div> {this.state.gameDocDisplay ? <GameDoc /> : null } <form .......
-		*/
+		
+		const gameDocDisplay = this.state.gameDocDisplay;
 		return (
 			<div>
 				<form style={ styles.navBar }>
-					<input style={ styles.left } type="submit" value="WHAT?" onClick={this.showGameDoc} />
-					<input style={ styles.right } type="submit" value="+NEW GAME" onClick={this.handleSubmit} />
+					<GameDoc />
+					<input style={ styles.right } type="submit" value="+ NEW GAME" onClick={this.startNewGame} />
+					
 				</form>
 			</div>
 		);

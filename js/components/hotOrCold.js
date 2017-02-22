@@ -6,8 +6,8 @@ import reactCSS from 'reactcss';
 
 
 class HotOrCold extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = {
 			feedback: 'Make Your Guess!'
 		}

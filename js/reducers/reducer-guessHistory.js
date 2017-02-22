@@ -5,9 +5,17 @@ const GuessHistoryReducer = (state=[], action) => {
 		case "UPDATE_HISTORY": {
 			const newGuess = parseInt(action.payload);
 			const guessHistory = store.getState().guessHistory;
-			guessHistory.push(newGuess);
-			return guessHistory;
-			break;
+			//check if this new guess is in history
+			const indexOfNewGuess = guessHistory.indexOf(newGuess);
+			if (indexOfNewGuess === -1) {
+				guessHistory.push(newGuess);
+				return guessHistory;
+				break;
+			} else {
+				alert('You guessed this number already');
+				return state;
+				break;
+			}
 		}
 		case "CLEAR_HISTORY": {
 			const newHistory = [];
