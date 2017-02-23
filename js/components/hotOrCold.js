@@ -9,12 +9,14 @@ class HotOrCold extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			feedback: 'Make Your Guess!'
+			feedback: 'Make Your Guess!',
+			guessCount: null
 		}
 		
 		store.subscribe(() => {
 			this.setState({
-				feedback: store.getState().feedback
+				feedback: store.getState().feedback,
+				guessCount: store.getState().guessCount
 			})
 		})
 	}
@@ -33,7 +35,13 @@ class HotOrCold extends React.Component {
 
 		if (this.state.feedback === 'Correct!') {
 			alert('Correct!');
-			//dispatch api req here
+			//store.dispatch({type: "UPDATE_FEWESTGUESS", payload: this.state.guessCount})
+
+			return (
+				<div style={ styles.feedbackBox}>
+					<h3>{this.state.feedback}</h3>
+				</div>
+			); 
 			
 		} else return (
 			<div style={ styles.feedbackBox}>

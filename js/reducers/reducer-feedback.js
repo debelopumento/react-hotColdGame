@@ -1,5 +1,5 @@
-import store from '../store';
-
+import store from '../store'
+import axios from 'axios'
 
 const FeedbackReducer = (state='Make Your Guess!', action) => {
 	switch (action.type) {
@@ -20,7 +20,19 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 					feedback = "Hot!"
 				} else if (absoluteValue != 0) {
 					feedback = 'Super hot!'
-				} else {feedback = 'Correct!'}
+				} else {
+					feedback = 'Correct!'
+					const guessCount = store.getState().guessCount
+					const fewestGuess = store.getState().fewestGuess
+					if (guessCount < fewestGuess) {
+						const url = 'localhost:6060/updateRecord/'
+						axios.put(url + guessCount)
+						.then(function() {
+							console.log('updated fewest guess: ', guessCount)
+						})
+						.catch((e) => {console.error('Internal server error')})
+					}					
+				}
 			}
 
 			feedbackGenerator(absoluteValue);

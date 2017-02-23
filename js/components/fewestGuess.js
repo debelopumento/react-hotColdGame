@@ -10,9 +10,17 @@ class FewestGuess extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			fewestGuess: 30
+			fewestGuess: 0
 		};
+
+		store.subscribe(() => {
+			this.setState({
+				fewestGuess: store.getState().fewestGuess
+			})
+		})
+
 	}
+
 
 	render() {
 		const styles = reactCSS({
