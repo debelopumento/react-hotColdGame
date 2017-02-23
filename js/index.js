@@ -12,7 +12,4 @@ ReactDOM.render(
 	</Provider>
 	, document.getElementById('app'))
 
-	document.addEventListener('DOMContentLoaded', () =>
-		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null})
-);
-
+	

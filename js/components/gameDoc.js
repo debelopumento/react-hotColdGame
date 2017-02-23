@@ -30,12 +30,11 @@ export default class GameDoc extends React.Component {
 				gameDoc: {
 					background: 'rgba(1, 0, 0, 0.85)',
 					position: 'absolute',
-					margin: '10 auto',
-					width: '600px',
+					marginLeft: '10px',
+					marginRight: '10px',
 					padding: '5px',
 					float: 'center',
 					flex: '1',
-					zIndex: '10',
 				},
 				ul: {
 					listStyleType: 'none',

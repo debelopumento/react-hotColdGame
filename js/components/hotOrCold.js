@@ -31,7 +31,11 @@ class HotOrCold extends React.Component {
 			}
 		})	
 
-		return (
+		if (this.state.feedback === 'Correct!') {
+			alert('Correct!');
+			//dispatch api req here
+			
+		} else return (
 			<div style={ styles.feedbackBox}>
 				<h3>{this.state.feedback}</h3>
 			</div>

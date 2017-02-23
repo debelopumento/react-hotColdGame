@@ -4,6 +4,7 @@ import GameContainer from './gameContainer';
 import store from '../store';
 
 
+
 const App = () => {
 	return 	<div>
 				<GameContainer />

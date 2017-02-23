@@ -34,8 +34,7 @@ class NavBar extends React.Component {
 			'default': {
 				navBar: {
 					width: '95%',
-					margin: '10px auto',
-					display: 'flexbox',
+					margin: '0 auto',
 				},
 				left: {
 					background: 'rgba(0, 0, 0, 0)',

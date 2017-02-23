@@ -24,7 +24,6 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 			}
 
 			feedbackGenerator(absoluteValue);
-			console.log('message: ', feedback);
 			return feedback;
 			break;
 		}

@@ -7,7 +7,7 @@ import GuessHistory from '../components/guessHistory';
 import NavBar from '../components/navBar';
 import GameDoc from '../components/gameDoc';
 import store from '../store';
-
+import FewestGuess from '../components/fewestGuess';
 import reactCSS from 'reactcss';
 
 class GameContainer extends React.Component {
@@ -16,6 +16,11 @@ class GameContainer extends React.Component {
 		this.state = {
 		}
 	}
+
+	componentWillMount() {
+		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null})
+	}
+
 
 	render() {
 		const styles = reactCSS({
@@ -43,7 +48,7 @@ class GameContainer extends React.Component {
 
 		return (
 			<div className="gameContainer">
-				
+
 				<nav style={ styles.nav }>
 					<NavBar />
 				</nav>
@@ -56,7 +61,7 @@ class GameContainer extends React.Component {
 					</div>
 					<GuessHistory />
 				</div>
-				
+				<FewestGuess />
 			</div>
 		);
 	}
