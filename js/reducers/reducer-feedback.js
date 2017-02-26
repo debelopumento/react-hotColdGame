@@ -7,7 +7,7 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 			const goalNumber = store.getState().goalNumber;
 			const newGuess = action.payload;
 			const absoluteValue = Math.abs(newGuess - goalNumber);
-			
+			console.log(22, newGuess)
 			let feedback = '';
 			const feedbackGenerator = (absoluteValue) => {
 				if (absoluteValue >= 30) {
@@ -22,10 +22,10 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 					feedback = 'Super hot!'
 				} else {
 					feedback = 'Correct!'
-					const guessCount = store.getState().guessCount
+					const guessCount = store.getState().guessCount + 1
 					const fewestGuess = store.getState().fewestGuess
 					if (guessCount < fewestGuess) {
-						const url = 'localhost:6060/updateRecord/'
+						const url = 'http://localhost:6060/updateRecord/'
 						axios.put(url + guessCount)
 						.then(function() {
 							console.log('updated fewest guess: ', guessCount)

@@ -16,8 +16,9 @@ class EnterGuess extends React.Component {
 	}
 
 	handleSubmit(event) {		
+		console.log(12, this.state.newGuess)
 		event.preventDefault();
-		store.dispatch(enterGuess(this.state.newGuess));
+		store.dispatch({type: 'NEW_GUESS', payload: this.state.newGuess});
 		store.dispatch(updateFeedback(this.state.newGuess));
 		store.dispatch(updateHistory(this.state.newGuess));
 		store.dispatch(updateGuessCount());
@@ -26,8 +27,9 @@ class EnterGuess extends React.Component {
 	}
 
 	handleChange(event) {
-		const newGuess = event.target.value;
-		this.state.newGuess = newGuess;
+		const newGuess = event.target.value
+		console.log(11, newGuess)
+		this.state.newGuess = newGuess
 	}
 
 	render() {

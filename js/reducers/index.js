@@ -14,13 +14,14 @@ const FewestGuessReducer = (state=30, action) => {
 		case "GET_FEWESTGUESS": {
 			axios.get('http://localhost:6060/fewestGuess')
 			.then(function(res) {
-				console.log(100, res)
+				state = res.data[0].guessCount
+				console.log(100, state)
 				return state
 			})
 			.catch((e) => {console.error('Internal server error')})
 		}
 		case "UPDATE_FEWESTGUESS": {
-			const url = 'localhost:6060/updateRecord/'
+			const url = 'http://localhost:6060/updateRecord/'
 			const newRecord = action.payload
 			axios.put(url + newRecord)
 			.then(function() {
@@ -33,6 +34,7 @@ const FewestGuessReducer = (state=30, action) => {
 	}
 	return state
 }
+
 
 const allReducers = combineReducers({
 	goalNumber: GoalNumberReducer,

@@ -1,8 +1,9 @@
 const NewGuessReducer = (state=null, action) => {
 	switch (action.type) {
 		case "NEW_GUESS": {
-			const newGuess = action.payload;			
-			return newGuess;
+			state = action.payload;			
+			console.log(21, state)
+			return state;
 			break;
 		}
 	}

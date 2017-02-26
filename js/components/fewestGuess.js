@@ -10,7 +10,7 @@ class FewestGuess extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			fewestGuess: 0
+			fewestGuess: 15
 		};
 
 		store.subscribe(() => {
@@ -18,7 +18,6 @@ class FewestGuess extends React.Component {
 				fewestGuess: store.getState().fewestGuess
 			})
 		})
-
 	}
 
 

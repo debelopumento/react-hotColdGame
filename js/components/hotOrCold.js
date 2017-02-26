@@ -34,7 +34,6 @@ class HotOrCold extends React.Component {
 		})	
 
 		if (this.state.feedback === 'Correct!') {
-			alert('Correct!');
 			//store.dispatch({type: "UPDATE_FEWESTGUESS", payload: this.state.guessCount})
 
 			return (
