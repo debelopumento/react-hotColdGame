@@ -25,6 +25,7 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 					alert('Correct!')
 					const guessCount = store.getState().guessCount + 1
 					const fewestGuess = store.getState().fewestGuess
+					console.log(102, guessCount, 103, fewestGuess)
 					if (guessCount < fewestGuess) {
 						const url = 'http://localhost:6060/updateRecord/'
 						axios.put(url + guessCount)
