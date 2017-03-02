@@ -6,6 +6,8 @@ import App from '../containers/app';
 import reactCSS from 'reactcss';
 import GameDoc from './gameDoc';
 
+import {enterGuess, updateFeedback, updateHistory, updateGuessCount, getFewestGuess} from '../actions/index';
+
 class NavBar extends React.Component {
 
 	constructor() {
@@ -23,10 +25,12 @@ class NavBar extends React.Component {
 
 	startNewGame(event) {		
 		event.preventDefault();
+		console.log(34)
 		store.dispatch({type: "CLEAR_FEEDBACK", payload: null});
 		store.dispatch({type: "CLEAR_HISTORY", payload: null});
 		store.dispatch({type: "CLEAR_GUESS_COUNT", payload: null});
 		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null});
+		store.dispatch(getFewestGuess())
 	}
 
 	render() {

@@ -12,18 +12,6 @@ const FewestGuessReducer = (state=30, action) => {
 	
 	switch (action.type) {
 		
-		case "UPDATE_FEWESTGUESS": {
-			const url = 'http://localhost:6060/updateRecord/'
-			const newRecord = action.payload
-			axios.put(url + newRecord)
-			.then(function() {
-				console.log('updated fewest guess: ', newRecord)
-				state = newRecord
-			})
-			.catch((e) => {console.error('Internal server error')})
-			return 11
-		}		
-	
 		case "GET_FEWESTGUESS": {
 			return action.payload
 		}
