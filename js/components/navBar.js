@@ -6,7 +6,7 @@ import App from '../containers/app';
 import reactCSS from 'reactcss';
 import GameDoc from './gameDoc';
 
-import {enterGuess, updateFeedback, updateHistory, updateGuessCount, getFewestGuess} from '../actions/index';
+import {startNewGame, enterGuess, updateFeedback, updateHistory, updateGuessCount, getFewestGuess} from '../actions/index';
 
 class NavBar extends React.Component {
 

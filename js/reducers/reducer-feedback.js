@@ -1,5 +1,6 @@
 import store from '../store'
 import axios from 'axios'
+import {enterGuess, updateFeedback, updateHistory, updateGuessCount, getFewestGuess} from '../actions/index';
 
 const FeedbackReducer = (state='Make Your Guess!', action) => {
 	switch (action.type) {
@@ -31,6 +32,7 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 						axios.put(url + guessCount)
 						.then(function() {
 							console.log('updated fewest guess: ', guessCount)
+							store.dispatch(getFewestGuess())
 						})
 						.catch((e) => {console.error('Internal server error')})
 					}					

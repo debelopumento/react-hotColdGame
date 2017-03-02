@@ -1,5 +1,6 @@
 import axios from 'axios'
 import fetch from 'isomorphic-fetch'
+import store from '../store';
 
 
 export const NEW_GUESS = 'NEW_GUESS';
@@ -20,11 +21,7 @@ export const updateHistory = newGuess => ({
 	payload: newGuess
 })
 
-export const START_NEW_GAME = 'START_NEW_GAME';
-export const startNewGame = () => ({
-	type: START_NEW_GAME,
-	startNewGame
-})
+
 
 export const UPDATE_GUESS_COUNT = 'UPDATE_GUESS_COUNT';
 export const updateGuessCount = () => ({
@@ -47,5 +44,15 @@ export const getFewestGuess = () => {
 			})
 			.catch((e) => {console.error('Internal server error: ', e)})
 	}
+	
+}
+
+export const startNewGame = () => {
+	console.log(44)
+	store.dispatch({type: "CLEAR_FEEDBACK", payload: null});
+	store.dispatch({type: "CLEAR_HISTORY", payload: null});
+	store.dispatch({type: "CLEAR_GUESS_COUNT", payload: null});
+	store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null});
+	getFewestGuess()
 	
 }
