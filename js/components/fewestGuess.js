@@ -22,27 +22,6 @@ class FewestGuess extends React.Component {
 		})
 	}
 
-	/*
-	componentWillUpdate() {
-		store.dispatch({type: "GET_FEWESTGUESS", payload: null})
-	}
-	*/
-
-	handelclick(event) {
-		//store.dispatch({type: "GET_FEWESTGUESS", payload: null})
-		store.dispatch(getFewestGuess());
-		/*
-		console.log('break')
-		axios.get('http://localhost:6060/fewestGuess')
-			.then(function(res) {
-				state = res.data[0].guessCount
-				console.log(100, state, 101, res)
-				return state
-			})
-			.catch((e) => {console.error('Internal server error')})
-		*/
-	}
-
 	componentWillMount() {
 		store.dispatch(getFewestGuess())
 	}
@@ -60,9 +39,8 @@ class FewestGuess extends React.Component {
 		})
 		console.log(300, this.state.fewestGuess)
 		return (				
-			<div>
 			<div style={ styles.fewestGuessDisplay }>Fewest Guess: <span style={ styles.guessCount }>{this.state.fewestGuess}</span>
-			</div><button type="submit" onClick={this.handelclick}>fetch</button></div>
+			</div>
 		);
 	}
 }
