@@ -19,7 +19,7 @@ class GameContainer extends React.Component {
 
 	componentWillMount() {
 		store.dispatch({type: "GENERATE_NEW_NUMBER", payload: null})
-		store.dispatch({type: "GET_FEWESTGUESS", payload: null})
+		
 	}
 
 

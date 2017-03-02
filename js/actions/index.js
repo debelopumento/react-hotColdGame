@@ -1,3 +1,6 @@
+import axios from 'axios'
+import fetch from 'isomorphic-fetch'
+
 
 export const NEW_GUESS = 'NEW_GUESS';
 export const enterGuess = newGuess => ({
@@ -29,7 +32,20 @@ export const updateGuessCount = () => ({
 	payload: updateGuessCount
 })
 
-
-
-
-
+export const GET_FEWESTGUESS = 'GET_FEWESTGUESS'
+export const getFewestGuess = () => {
+	return function(dispatch) {
+		axios.get('http://localhost:6060/fewestGuess')
+			.then(function(res) {
+				let fewestGuess = res.data[0].guessCount
+				console.log(100, fewestGuess, 101, res)
+				//fewestGuess = 10
+				dispatch( {
+					type: GET_FEWESTGUESS,
+					payload: fewestGuess 
+				})
+			})
+			.catch((e) => {console.error('Internal server error: ', e)})
+	}
+	
+}

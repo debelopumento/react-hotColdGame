@@ -22,6 +22,7 @@ const FeedbackReducer = (state='Make Your Guess!', action) => {
 					feedback = 'Super hot!'
 				} else {
 					feedback = 'Correct!'
+					alert('Correct!')
 					const guessCount = store.getState().guessCount + 1
 					const fewestGuess = store.getState().fewestGuess
 					if (guessCount < fewestGuess) {

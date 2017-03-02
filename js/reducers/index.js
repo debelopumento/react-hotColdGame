@@ -8,18 +8,10 @@ import GuessCountReducer from './reducer-guessCount'
 import GuessHistoryReducer from './reducer-guessHistory'
 import axios from 'axios'
 
-
 const FewestGuessReducer = (state=30, action) => {
+	
 	switch (action.type) {
-		case "GET_FEWESTGUESS": {
-			axios.get('http://localhost:6060/fewestGuess')
-			.then(function(res) {
-				state = res.data[0].guessCount
-				console.log(100, state)
-				return state
-			})
-			.catch((e) => {console.error('Internal server error')})
-		}
+		
 		case "UPDATE_FEWESTGUESS": {
 			const url = 'http://localhost:6060/updateRecord/'
 			const newRecord = action.payload
@@ -29,9 +21,14 @@ const FewestGuessReducer = (state=30, action) => {
 				state = newRecord
 			})
 			.catch((e) => {console.error('Internal server error')})
-			return state
+			return 11
+		}		
+	
+		case "GET_FEWESTGUESS": {
+			return action.payload
 		}
 	}
+
 	return state
 }
 
